@@ -1,0 +1,37 @@
+[package]
+name = "sqlx_test"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+axum = "0.6.20"
+tokio = { version = "1", features = ["full"] }
+tracing = "0.1"
+tracing-subscriber = "0.3.17"
+simple_logger = "4.2.0"
+log = "0.4.20"
+
+[dependencies.sqlx]
+version = "0.7.2"
+#version = "0.6"
+default-features = false
+features = [
+    "postgres",
+    "runtime-tokio-rustls",
+    "macros", "migrate",
+    "chrono", "json", "uuid",
+]
+
+[[bin]]
+name = "binary1"
+path = "src/main1.rs"
+
+[[bin]]
+name = "binary2"
+path = "src/main2.rs"
+
+[[bin]]
+name = "binary3"
+path = "src/main3.rs"
